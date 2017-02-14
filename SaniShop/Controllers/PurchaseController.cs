@@ -19,6 +19,7 @@ namespace SaniShop.Controllers
         public ActionResult GetPurchaseHome()
         {
 
+
             return View();
 
         }
