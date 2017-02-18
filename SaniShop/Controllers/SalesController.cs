@@ -11,7 +11,7 @@ namespace SaniShop.Controllers
         // GET: Sales
         public ActionResult Index()
         {
-
+            var i = 1;
             return View();
         }
     }
