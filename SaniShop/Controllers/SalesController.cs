@@ -14,5 +14,11 @@ namespace SaniShop.Controllers
             var i = 1;
             return View();
         }
+
+        public ActionResult GetResult()
+        {
+
+            return View();
+        }
     }
 }
