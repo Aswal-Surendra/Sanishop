@@ -339,11 +339,11 @@ text-align:center;
 border-left:1px solid #01C5FF;
 border-right:1px solid #01C5FF;
 height:33px;
-float: left;
+float: initial;
 color: white;
 padding-top:18px;
 text-decoration: none;
-padding-left:10px;
+padding-left:73px;
 padding-right:10px;
 }
 
