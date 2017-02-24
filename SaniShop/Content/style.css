@@ -21,14 +21,14 @@ body
 }
 
 .logo{
-  width: 776px;
+  width: 701px;
   font-family:Arial, Helvetica, sans-serif;
   font-size:48px;
-  color:#00a8d2;
+  color:#007CAA;
   margin-top:10px;
   margin-bottom:10px;
   margin-left:10px;
-  text-align:left;
+  text-align:center;
 }
 
 .footer{
@@ -183,9 +183,10 @@ body
 
 .body-middle
 {
-  width: 389px;
+  width: 750px;
   height: 680px;
   float: right;
+  background-color:lightskyblue;
 }
 .body-middle-box1
 {

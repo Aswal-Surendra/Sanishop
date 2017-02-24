@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Shop Online</title>
+    <titles>Sani Brother's Pvt. Ltd.</titles>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
@@ -19,12 +19,11 @@
             <div class="logo"> Shop<strong>Online</strong></div>
             <div class="menu">
                 <ul class="solidblockmenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">User Guide</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Hot Deals</a></li>
-                    <li><a href="#">FAQ's</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Sales Market", "Index", "Sales")</li>
+                    <li>@Html.ActionLink("Purchase Market", "Index", "Purchase")</li>
+                    <li>@Html.ActionLink("Reports", "Index", "Report")</li>
+                    <li>@Html.ActionLink("Review Stock", "Index", "ReviewStock")</li>
                 </ul>
                 <div class="clear"></div>
             </div>
@@ -43,7 +42,8 @@
             <div class="hot-search-text"> Hot Searches: Apple iPod Nano, Hugo Boss Clothing, HD DVD Player, DSLR Camera, Toshiba 32&quot; LCD TV, Unsecured Loans, Excersise Machines..</div>
         </div>
         <div class="body-wrapper">
-            <div class="body-right">
+            
+            @*<div class="body-right">
                 <div class="body-right-box1">
                     <div class="right-topic-title"> Favourite Items</div>
                     <br />
@@ -98,56 +98,18 @@
                 <div class="body-right-ad2"> &nbsp;</div>
                 <div class="separator"> &nbsp;</div>
                 <div class="body-right-ad3"> &nbsp;</div>
-            </div>
-            <div class="divider1"> &nbsp;</div>
+            </div>*@
+            @*<div class="divider1"> &nbsp;</div>*@
             <div class="body-middle">
 
 
                 @RenderBody()
-                <div class="body-middle-box1">
-                    <div class="lcd-title">
-                        New Year Sale!<br />
-                        Great HDTV Deals! <br />
-                        <br />
-                        <img src="~/images/findout.jpg" alt="" />
-                    </div>
-                </div>
-                <div class="separator-middle"> &nbsp;</div>
-                <div class="body-middle-box2">
-                    <div class="sale-title"> New Year Sale!</div>
-                    <div class="sale-desc">
-                        Lorem ipsum dolor sit amet, consectetdipisicing elit, sed do eiusmod tempor incididabore et dolore magna aliqua. Ut enim ad mieniauis nostrud exercitation ullamco laboris nisiliquip ex ea. Lorem ipsum dolor sit amet, consecur adipisicing elit, sed do eiusmod tempcidi <br />
-                        <br />
-                        <img src="~/images/findout.jpg" alt="" />
-                    </div>
-                </div>
-                <div class="separator-middle"> &nbsp;</div>
-                <div class="body-middle-box3">
-                    <div class="gallery-name" style="margin-left:15px;padding-top:7px;"> New Stuff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top Sellers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hot Deals</div>
-                    <div style="clear:both;">
-                        <div class="gallery-product3">
-                            <img src="~/images/ipod.jpg" alt="" />
-                            <div class="gallery-name">iPod Classic!</div>
-                            <div class="gallery-price">From &pound;129.99</div>
-                            <img src="~/images/goshop.jpg" alt="" />
-                        </div>
-                        <div class="gallery-product2">
-                            <img src="~/images/ipod.jpg" alt="" />
-                            <div class="gallery-name">iPod Classic!</div>
-                            <div class="gallery-price">From &pound;129.99</div>
-                            <img src="~/images/goshop.jpg" />
-                        </div>
-                        <div class="gallery-product1">
-                            <img src="~/images/ipod.jpg" alt="" />
-                            <div class="gallery-name">iPod Classic!</div>
-                            <div class="gallery-price">From &pound;129.99</div>
-                            <img src="~/images/goshop.jpg" alt="" />
-                        </div>
-                    </div>
-                </div>
+                
+                
+               
             </div>
-            <div class="divider2"> &nbsp;</div>
-            <div class="body-left">
+            @*<div class="divider2"> &nbsp;</div>*@
+            @*<div class="body-left">
                 <div class="left-main-title"> Shopping Categories</div>
                 <div class="left-topic-title"> Books, DVD&#8217;s &amp; Music</div>
                 <div class="left-topic-desc"> CD&#8217;s, Magazine Subscriptions, 300: The Movie, &amp; more..</div>
@@ -165,7 +127,7 @@
                 <div class="left-topic-desc"> CD&#8217;s, Magazine Subscriptions, 300: The Movie, &amp; more..</div>
                 <div class="left-topic-title" style="padding-top:30px;"> Books, DVD&#8217;s &amp; Music</div>
                 <div class="left-topic-desc"> CD&#8217;s, Magazine Subscriptions, 300: The Movie, &amp; more..</div>
-            </div>
+            </div>*@
         </div>
         <div class="separator-main"> &nbsp;</div>
         <div class="footer">
