@@ -1,29 +1,36 @@
-﻿
+﻿@model SaniShop.DAL.Sales_Details
+
 @{
     ViewBag.Title = "SalesIndex";
 }
 
 <h2>Sales Home</h2>
+@using (Html.BeginForm("PaymentSuccess", "Shopping"))
+{
+
 <html>
 
 <body>
     <table>
         <tr>
             <td>Iteam </td>
-            @*<td><label>City*  @Html.ValidationMessageFor(m => m.City)</label>
-            @Html.TextBoxFor(m => m.City, new { @class = "inputComn", @placeholder = "City" }) </td>*@
+            <td>
+            @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" }) 
+            </td>
 
         </tr>
         <tr>
             <td>Price </td>
-            @*<td><label>City*  @Html.ValidationMessageFor(m => m.City)</label>
-            @Html.TextBoxFor(m => m.City, new { @class = "inputComn", @placeholder = "City" }) </td>*@
+            <td>
+            @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" }) 
+            </td>
 
         </tr>
         <tr>
             <td>customer </td>
-            @*<td><label>City*  @Html.ValidationMessageFor(m => m.City)</label>
-            @Html.TextBoxFor(m => m.City, new { @class = "inputComn", @placeholder = "City" }) </td>*@
+            <td><
+            @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" }) 
+            </td>
 
         </tr>
 
@@ -32,3 +39,4 @@
 
 </body>
 </html>
+}

@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -174,6 +176,42 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewStockController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="DAL\Complaint.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Customer.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ProductMaster.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Sale.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Sales_Details.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ShopDetail.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopDetail.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ShopDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ShopDetail.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopDetail.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SupplierMaster.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\WattMaster.cs">
+      <DependentUpon>ShopDetail.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,6 +226,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\style-ie.css" />
     <Content Include="Content\style.css" />
+    <Content Include="DAL\ShopDetail.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopDetail.edmx</DependentUpon>
+      <LastGenOutput>ShopDetail.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\ShopDetail.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopDetail.edmx</DependentUpon>
+      <LastGenOutput>ShopDetail.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -215,6 +263,13 @@
     <Content Include="images\search.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="DAL\ShopDetail.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopDetail.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\ShopDetail.edmx.diagram">
+      <DependentUpon>ShopDetail.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -266,7 +321,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\Report\" />
     <Folder Include="Views\ReviewStock\" />
@@ -278,6 +332,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
