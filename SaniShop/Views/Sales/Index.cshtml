@@ -1,42 +1,46 @@
-﻿@model SaniShop.DAL.Sales_Details
+﻿@model SaniShop.DAL.SalesDetails
 
 @{
     ViewBag.Title = "SalesIndex";
 }
 
 <h2>Sales Home</h2>
-@using (Html.BeginForm("PaymentSuccess", "Shopping"))
+@using (Html.BeginForm("Index", "Sales"))
 {
 
 <html>
 
 <body>
-    <table>
-        <tr>
-            <td>Iteam </td>
-            <td>
-            @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" }) 
-            </td>
+    <div>
+        <table>
+            <tr>
+                <td>Iteam </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" })
+                </td>
 
-        </tr>
-        <tr>
-            <td>Price </td>
-            <td>
-            @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" }) 
-            </td>
+            </tr>
+            <tr>
+                <td>Price </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" })
+                </td>
 
-        </tr>
-        <tr>
-            <td>customer </td>
-            <td><
-            @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" }) 
-            </td>
+            </tr>
+            <tr>
+                <td>customer </td>
+                <td>
+                    <
+                    @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" })
+                </td>
 
-        </tr>
+            </tr>
 
-    </table>
-
-
+        </table>
+    </div>
+    <div>
+        <input type="submit" class="contactBtn signupBtn" value="Submit" />
+    </div>
 </body>
 </html>
 }

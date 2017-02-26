@@ -1,8 +1,11 @@
-﻿using System;
+﻿using SaniShop.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SaniShop.Models;
+
 
 namespace SaniShop.Controllers
 {
@@ -11,13 +14,22 @@ namespace SaniShop.Controllers
         // GET: Sales
         public ActionResult Index()
         {
-            var i = 1;
             return View();
         }
-
-        public ActionResult GetResult()
+        
+        [HttpPost]
+        public ActionResult Index(SalesDetailModel request)
         {
 
+            SalesDetails obj = new SalesDetails();
+            obj.Product_id = request.Product_id;
+            obj.Product_price = request.Product_price;
+            obj.Quantity = request.Quantity;
+            using (SainiShopEntities objDb = new SainiShopEntities())
+            {
+                objDb.SalesDetails.Add(obj);
+                objDb.SaveChanges();
+            }
             return View();
         }
     }
