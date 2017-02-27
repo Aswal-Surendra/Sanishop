@@ -1,0 +1,46 @@
+﻿@model SaniShop.Models.ProductModal
+@{
+    
+    Layout = null;
+}
+
+
+ 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetPurchaseHome</title>
+    
+</head>
+<body>
+    <div> 
+@using (Html.BeginForm())
+{
+        <table>
+            <tr>
+                <td>ProductName</td>
+                <td>@Html.TextBoxFor(m => m.product_name)</td>
+            </tr>
+
+            <tr>
+                <td>Description</td>
+                <td>@Html.TextBoxFor(m => m.description)</td>
+            </tr>
+
+            <tr>
+                <td>UnitperPrice</td>
+                <td>@Html.TextBoxFor(m => m.unitperprice)</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align:center">
+                     <input type="submit" name="save" value="save" />
+                </td>
+            </tr>
+        </table>
+}
+    </div>
+</body>
+</html>

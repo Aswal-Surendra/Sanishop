@@ -8,39 +8,42 @@
 @using (Html.BeginForm("Index", "Sales"))
 {
 
-<html>
+    <html>
 
-<body>
-    <div>
-        <table>
-            <tr>
-                <td>Iteam </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" })
-                </td>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>id </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.id, new { @class = "inputComn", @placeholder = "City" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>Iteam </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>customer </td>
+                    <td>
+                        <
+                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" })
+                    </td>
+                </tr>
 
-            </tr>
-            <tr>
-                <td>Price </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" })
-                </td>
-
-            </tr>
-            <tr>
-                <td>customer </td>
-                <td>
-                    <
-                    @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" })
-                </td>
-
-            </tr>
-
-        </table>
-    </div>
-    <div>
-        <input type="submit" class="contactBtn signupBtn" value="Submit" />
-    </div>
-</body>
+            </table>
+        </div>
+        <div>
+            <input type="submit" class="contactBtn signupBtn" value="Submit" />
+        </div>
+    </body>
 </html>
 }

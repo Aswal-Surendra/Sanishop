@@ -22,9 +22,11 @@ namespace SaniShop.Controllers
         {
 
             SalesDetails obj = new SalesDetails();
+            obj.id = request.id;
             obj.Product_id = request.Product_id;
             obj.Product_price = request.Product_price;
             obj.Quantity = request.Quantity;
+            obj.salesdate = DateTime.Now.ToString();
             using (SainiShopEntities objDb = new SainiShopEntities())
             {
                 objDb.SalesDetails.Add(obj);
