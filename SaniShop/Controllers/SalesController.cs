@@ -12,6 +12,7 @@ namespace SaniShop.Controllers
     public class SalesController : Controller
     {
         // GET: Sales
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -20,7 +21,6 @@ namespace SaniShop.Controllers
         [HttpPost]
         public ActionResult Index(SalesDetailModel request)
         {
-
             SalesDetails obj = new SalesDetails();
             obj.id = request.id;
             obj.Product_id = request.Product_id;

@@ -26,5 +26,21 @@ namespace SaniShop.Controllers
             return View();
 
         }
+        [HttpPost]
+        public ActionResult GetPurchaseHome(ProductModal request)
+        {
+            ProductMaster obj1 = new ProductMaster();// {Product_name=request.product_name, };
+            obj1.Product_name = request.product_name;
+            obj1.Description = request.description;
+            obj1.UnitperPrice = request.unitperprice;
+            using (SainiShopEntities objDb = new SainiShopEntities())
+            {
+                objDb.ProductMasters.Add(obj1);
+                objDb.SaveChanges();
+            }
+
+            return View();
+
+        }
     }
 }
