@@ -12,7 +12,7 @@ namespace SaniShop.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class SalesDetails
+    public partial class SalesDetail
     {
         public int id { get; set; }
         public string Sales_id { get; set; }

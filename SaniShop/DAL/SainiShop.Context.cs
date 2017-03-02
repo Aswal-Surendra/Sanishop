@@ -15,10 +15,10 @@ namespace SaniShop.DAL
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class SainiShopEntities : DbContext
+    public partial class SainiShopEntities1 : DbContext
     {
-        public SainiShopEntities()
-            : base("name=SainiShopEntities")
+        public SainiShopEntities1()
+            : base("name=SainiShopEntities1")
         {
         }
     
@@ -28,12 +28,12 @@ namespace SaniShop.DAL
         }
     
         public virtual DbSet<Complaint> Complaints { get; set; }
-        public virtual DbSet<SupplierMaster> SupplierMasters { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<ProductMaster> ProductMasters { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<SalesDetail> SalesDetails { get; set; }
+        public virtual DbSet<SupplierMaster> SupplierMasters { get; set; }
         public virtual DbSet<WattMaster> WattMasters { get; set; }
-        public virtual DbSet<SalesDetails> SalesDetails { get; set; }
     
         public virtual int productproc(Nullable<int> product_id, string product_name, Nullable<int> suppliers_id, Nullable<int> quantity, string description, Nullable<int> price)
         {

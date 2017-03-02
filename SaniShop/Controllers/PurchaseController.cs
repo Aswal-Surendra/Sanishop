@@ -33,7 +33,7 @@ namespace SaniShop.Controllers
             obj1.Product_name = request.product_name;
             obj1.Description = request.description;
             obj1.UnitperPrice = request.unitperprice;
-            using (SainiShopEntities objDb = new SainiShopEntities())
+            using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
                 objDb.ProductMasters.Add(obj1);
                 objDb.SaveChanges();

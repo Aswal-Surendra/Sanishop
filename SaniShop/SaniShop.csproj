@@ -181,40 +181,40 @@
     <Compile Include="Controllers\ReviewStockController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="DAL\Complaint.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Customer.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\ProductMaster.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SainiShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SainiShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SainiShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SainiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SainiShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SainiShop.edmx</DependentUpon>
     </Compile>
     <Compile Include="DAL\Sale.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\SalesDetails.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ShopDetail.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDetail.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ShopDetail.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDetail.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ShopDetail.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDetail.edmx</DependentUpon>
+    <Compile Include="DAL\SalesDetail.cs">
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\SupplierMaster.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\WattMaster.cs">
-      <DependentUpon>ShopDetail.tt</DependentUpon>
+      <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,15 +232,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\style-ie.css" />
     <Content Include="Content\style.css" />
-    <Content Include="DAL\ShopDetail.Context.tt">
+    <Content Include="DAL\SainiShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopDetail.edmx</DependentUpon>
-      <LastGenOutput>ShopDetail.Context.cs</LastGenOutput>
+      <DependentUpon>SainiShop.edmx</DependentUpon>
+      <LastGenOutput>SainiShop.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DAL\ShopDetail.tt">
+    <Content Include="DAL\SainiShop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopDetail.edmx</DependentUpon>
-      <LastGenOutput>ShopDetail.cs</LastGenOutput>
+      <DependentUpon>SainiShop.edmx</DependentUpon>
+      <LastGenOutput>SainiShop.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -269,12 +269,12 @@
     <Content Include="images\search.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DAL\ShopDetail.edmx">
+    <EntityDeploy Include="DAL\SainiShop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopDetail.Designer.cs</LastGenOutput>
+      <LastGenOutput>SainiShop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL\ShopDetail.edmx.diagram">
-      <DependentUpon>ShopDetail.edmx</DependentUpon>
+    <Content Include="DAL\SainiShop.edmx.diagram">
+      <DependentUpon>SainiShop.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

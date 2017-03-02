@@ -21,13 +21,13 @@ namespace SaniShop.Controllers
         [HttpPost]
         public ActionResult Index(SalesDetailModel request)
         {
-            SalesDetails obj = new SalesDetails();
+            SalesDetail obj = new SalesDetail();
             obj.id = request.id;
             obj.Product_id = request.Product_id;
             obj.Product_price = request.Product_price;
             obj.Quantity = request.Quantity;
             obj.salesdate = DateTime.Now.ToString();
-            using (SainiShopEntities objDb = new SainiShopEntities())
+            using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
                 objDb.SalesDetails.Add(obj);
                 objDb.SaveChanges();
