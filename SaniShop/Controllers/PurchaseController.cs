@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SaniShop.Models;
-    using SaniShop.DAL;
+using SaniShop.DAL;
 
 
 namespace SaniShop.Controllers
