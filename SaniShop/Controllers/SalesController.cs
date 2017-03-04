@@ -15,9 +15,34 @@ namespace SaniShop.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+
+            var db1 = new SainiShopEntities1();
+            var query = db1.ProductMasters.Select(c => new SelectListItem
+            {
+                Value = c.Product_id.ToString(),
+                Text = c.Product_name,
+                Selected = c.Product_id.Equals(3)
+            }).ToList();
+
+            var model = new SalesDetailModel { Productname = query.ToList() };
+            return View(model);
         }
-        
+
+        //[HttpGet]
+        //public ActionResult GetPurchaseHome()
+        //{
+        //    var db = new SainiShopEntities1();
+        //    var query = db.ProductMasters.Select(c => new SelectListItem
+        //    {
+        //        Value = c.Product_id.ToString(),
+        //        Text = c.Product_name,
+        //        Selected = c.Product_id.Equals(3)
+        //    }).ToList();
+
+        //    var model = new ProductModal { Productname = query.ToList() };
+        //    return View(model);
+        //}
+
         [HttpPost]
         public ActionResult Index(SalesDetailModel request)
         {

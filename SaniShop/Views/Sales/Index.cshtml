@@ -14,36 +14,42 @@
         <div>
             <table>
                 <tr>
-                    <td>id </td>
+                    <td>CustomerName</td>
                     <td>
-                        @Html.TextBoxFor(m => m.id, new { @class = "inputComn", @placeholder = "City" })
+
+                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
                     </td>
                 </tr>
                 <tr>
                     <td>Iteam </td>
                     <td>
-                        @Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn", @placeholder = "City" })
+                        @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--")
+                        @*@Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn" })*@
                     </td>
                 </tr>
                 <tr>
                     <td>Price </td>
                     <td>
-                        @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn", @placeholder = "City" })
+                        @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn" })
                     </td>
                 </tr>
                 <tr>
-                    <td>customer </td>
                     <td>
-                        
-                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn", @placeholder = "City" })
+
                     </td>
                 </tr>
 
+                <tr>
+                    <td colspan="2" style="text-align:center">
+                        <input type="submit" name="save" value="save" />
+                    </td>
+                </tr>
+             
             </table>
         </div>
-        <div>
-            <input type="submit" class="contactBtn signupBtn" value="Submit" />
-        </div>
+        @*<div >
+            <input  type="submit" class="contactBtn signupBtn" value="Submit" />
+        </div>*@
     </body>
 </html>
 }

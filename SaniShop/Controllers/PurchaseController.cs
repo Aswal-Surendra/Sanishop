@@ -33,8 +33,6 @@ namespace SaniShop.Controllers
             return View(model);
         }
 
-
-
         [HttpPost]
         public ActionResult GetPurchaseHome(ProductModal request)
         {
