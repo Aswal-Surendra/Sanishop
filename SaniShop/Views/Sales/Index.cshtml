@@ -1,7 +1,7 @@
 ﻿@model SaniShop.Models.SalesDetailModel
 
 @{
-    ViewBag.Title = "SalesIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Sales Home</h2>
@@ -11,20 +11,16 @@
     <html>
 
     <body>
-        <div>
-            <table>
-                <tr>
-                    <td>CustomerName</td>
-                    <td>
+        <div class="body-right">
+         @Html.ActionLink("Sales History", "Index", "Home")
+        </div>
 
-                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
-                    </td>
-                </tr>
+        <div>
+            <table class="table" style="width:auto">
                 <tr>
                     <td>Iteam </td>
                     <td>
                         @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--")
-                        @*@Html.TextBoxFor(m => m.Product_id, new { @class = "inputComn" })*@
                     </td>
                 </tr>
                 <tr>
@@ -33,19 +29,33 @@
                         @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn" })
                     </td>
                 </tr>
+
                 <tr>
+                    <td>Customer Name</td>
                     <td>
-
+                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
                     </td>
-                </tr>
-
+                </tr>   
                 <tr>
-                    <td colspan="2" style="text-align:center">
-                        <input type="submit" name="save" value="save" />
+                    <td>Iteam Discrption</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
                     </td>
                 </tr>
+                
              
             </table>
+<table class="table" style="width:auto">
+
+    <tr>
+        <td colspan="2" style="text-align:center">
+            <input type="submit" name="save" value="save" />
+        </td>
+    </tr>
+
+
+</table>
+
         </div>
         @*<div >
             <input  type="submit" class="contactBtn signupBtn" value="Submit" />
