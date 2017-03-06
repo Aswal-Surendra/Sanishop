@@ -24,30 +24,32 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Price </td>
+                    <td>Iteam Discrption</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Description, new { @class = "inputComn" })
+                    </td>
+                </tr>                
+                 <tr>
+                    <td>Price(Per Iteam)</td>
                     <td>
                         @Html.TextBoxFor(m => m.Product_price, new { @class = "inputComn" })
                     </td>
                 </tr>
-
                 <tr>
-                    <td>Customer Name</td>
-                    <td>
-                        @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
-                    </td>
-                </tr>   
-                <tr>
-                    <td>Iteam Discrption</td>
+                    <td>Quantity(In Count) </td>
                     <td>
                         @Html.TextBoxFor(m => m.Quantity, new { @class = "inputComn" })
                     </td>
                 </tr>
-                
-             
+                <tr>
+                    <td>Total Amount</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.TotalAmount, new { @class = "inputComn" })
+                    </td>
+                </tr>   
             </table>
-<table class="table" style="width:auto">
-
-    <tr>
+            <table class="table" style="width:auto">
+                <tr style="text-align:center">
         <td colspan="2" style="text-align:center">
             <input type="submit" name="save" value="save" />
         </td>

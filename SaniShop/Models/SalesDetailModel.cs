@@ -11,6 +11,7 @@ namespace SaniShop.Models
     {
 
         public int id { get; set; }
+        public string CustSaleID { get; set; }
         public string Sales_id { get; set; }
         public string Product_id { get; set; }
         public string Quantity { get; set; }
@@ -18,5 +19,7 @@ namespace SaniShop.Models
         public string SubTotal { get; set; }
         public string salesdate { get; set; }
         public List<SelectListItem> Productname { get; set; }
+        public string TotalAmount { get; set; }
+        public string Description { get; set; }
     }
 }
