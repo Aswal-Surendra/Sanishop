@@ -1,5 +1,4 @@
 ﻿@model SaniShop.Models.SalesDetailModel
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -25,9 +24,23 @@
                 <tr>
                     <td>Iteam </td>
                     <td>
-                        @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--")
+                        @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--", 
+                       new { @class = "form-control", @onchange = "FillWatt()" })
                     </td>
                 </tr>
+
+
+                <tr>
+                    <td>Iteam </td>
+                    <td>
+                       @Html.DropDownListFor(m => m.wattmain,
+       new SelectList(Enumerable.Empty<SelectListItem>(), "wattid", "wattmain"),
+              "Select watt",
+              new { @class = "form-control" })
+                    </td>
+                </tr>
+
+
                 <tr>
                     <td>Iteam Discrption</td>
                     <td>
@@ -83,7 +96,7 @@
 
     function checkAuthentication() {
 
-        debugger;
+        //debugger;
         var desc = jQuery.trim(jQuery('#Description').val());
         var price = jQuery.trim(jQuery('#Product_price').val());
         if (desc == "" && price == "") {
@@ -93,6 +106,25 @@
         else {
             return true;
         }
+    }
+
+
+    function FillWatt() {
+        debugger;
+        var stateId = jQuery.trim(jQuery('#Product_id').val()); 
+        $.ajax({
+            url: '/Sales/FillWatt',
+            type: "GET",
+            dataType: "JSON",
+            data: { State: stateId },
+            success: function (data) {
+                $("#wattmain").html(""); // clear before appending new list 
+                $.each(data, function (i, watt) {
+                    $("#wattmain").append(
+                        $('<option></option>').val(watt.id).html(watt.watt));
+                });
+            }
+        });
     }
 
 </script>

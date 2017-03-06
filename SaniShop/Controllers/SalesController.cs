@@ -59,5 +59,23 @@ namespace SaniShop.Controllers
             }
             return View();
         }
+
+        public ActionResult FillWatt(int State)
+        {
+            SainiShopEntities1 objDb = new SainiShopEntities1();
+            var watt = (from prod in objDb.ProductMasters
+                        join wat in objDb.WattMasters
+                        on prod.Product_id equals wat.product_id
+                        where prod.Product_id==State
+                        select new
+                        {
+                            id = prod.Product_id,
+                            watt = wat.watt
+                        }).ToList();
+
+            return Json(watt, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

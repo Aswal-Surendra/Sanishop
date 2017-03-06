@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SainiShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SainiShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Complaint">
           <Key>
             <PropertyRef Name="CompliantID" />
@@ -76,6 +76,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="watt" Type="int" />
+          <Property Name="product_id" Type="int" />
         </EntityType>
         <Function Name="productproc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="product_id" Type="int" Mode="In" />
@@ -94,8 +95,7 @@
           <EntitySet Name="SupplierMaster" EntityType="Self.SupplierMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WattMaster" EntityType="Self.WattMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SainiShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -170,6 +170,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="watt" Type="Int32" />
+          <Property Name="product_id" Type="Int32" />
         </EntityType>
         <EntityContainer Name="SainiShopEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Complaints" EntityType="Self.Complaint" />
@@ -268,6 +269,7 @@
           <EntitySetMapping Name="WattMasters">
             <EntityTypeMapping TypeName="SainiShopModel.WattMaster">
               <MappingFragment StoreEntitySet="WattMaster">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="watt" ColumnName="watt" />
               </MappingFragment>

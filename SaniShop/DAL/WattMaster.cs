@@ -14,7 +14,8 @@ namespace SaniShop.DAL
     
     public partial class WattMaster
     {
-        public int id { get; set; }
+        public int id { get; set; } 
         public Nullable<int> watt { get; set; }
+        public Nullable<int> product_id { get; set; }
     }
 }
