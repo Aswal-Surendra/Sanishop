@@ -4,8 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Sales Home</h2>
-@using (Html.BeginForm("Index", "Sales"))
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+
+@using (Html.BeginForm("Index", "Sales"))   
 {
 
     <html>
@@ -51,7 +56,7 @@
             <table class="table" style="width:auto">
                 <tr style="text-align:center">
         <td colspan="2" style="text-align:center">
-            <input type="submit" name="save" value="save" />
+            <input type="submit" id="Submit1" name="save" value="save" />
         </td>
     </tr>
 
@@ -65,3 +70,29 @@
     </body>
 </html>
 }
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#Submit1").click(function () {
+            return checkAuthentication();
+        });
+    });
+
+    function checkAuthentication() {
+
+        debugger;
+        var desc = jQuery.trim(jQuery('#Description').val());
+        var price = jQuery.trim(jQuery('#Product_price').val());
+        if (desc == "" && price == "") {
+            alert('Please enter the discription and price')
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+</script>
