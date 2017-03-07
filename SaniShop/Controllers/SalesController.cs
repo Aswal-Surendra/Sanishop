@@ -46,15 +46,19 @@ namespace SaniShop.Controllers
         [HttpPost]
         public ActionResult Index(SalesDetailModel request)
         {
-            SalesDetail obj = new SalesDetail();
-            obj.id = request.id;
-            obj.Product_id = request.Product_id;
+            Sales_Details obj = new Sales_Details();
+            obj.Description = request.Description;
+            foreach(var item in request.wattmain)
+            {
+                obj.watt = Convert.ToInt32(item.Text);// .wattid;
+            }
+            obj.Product_name = request.Product_id;
             obj.Product_price = request.Product_price;
             obj.Quantity = request.Quantity;
-            obj.salesdate = DateTime.Now.ToString();
+            obj.sales_date = DateTime.Now.ToString();
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
-                objDb.SalesDetails.Add(obj);
+                objDb.Sales_Details.Add(obj);
                 objDb.SaveChanges();
             }
             return View();

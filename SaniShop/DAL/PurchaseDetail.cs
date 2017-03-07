@@ -12,10 +12,16 @@ namespace SaniShop.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class WattMaster
+    public partial class PurchaseDetail
     {
         public int id { get; set; }
-        public Nullable<int> watt { get; set; }
-        public Nullable<int> product_id { get; set; }
+        public string purchase_id { get; set; }
+        public string product_name { get; set; }
+        public string Description { get; set; }
+        public string Quantity { get; set; }
+        public string PurchaseDate { get; set; }
+        public Nullable<decimal> price { get; set; }
+        public string additionalComment { get; set; }
+        public string SupplierName { get; set; }
     }
 }

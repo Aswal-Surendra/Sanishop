@@ -38,6 +38,20 @@
           <Property Name="Description" Type="varchar" MaxLength="250" />
           <Property Name="UnitperPrice" Type="int" />
         </EntityType>
+        <EntityType Name="PurchaseDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="purchase_id" Type="nvarchar" MaxLength="100" />
+          <Property Name="product_name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="8000" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="100" />
+          <Property Name="PurchaseDate" Type="varchar" MaxLength="100" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="additionalComment" Type="varchar" MaxLength="5000" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Sales">
           <Key>
             <PropertyRef Name="id" />
@@ -48,17 +62,21 @@
           <Property Name="Amount_paid" Type="int" Nullable="false" />
           <Property Name="Paid" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="SalesDetails">
+        <EntityType Name="Sales_Details">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sales_id" Type="nvarchar" MaxLength="50" />
-          <Property Name="Product_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
           <Property Name="Product_price" Type="nvarchar" MaxLength="50" />
-          <Property Name="SubTotal" Type="nvarchar" MaxLength="50" />
-          <Property Name="salesdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="sales_date" Type="nvarchar" MaxLength="50" />
+          <Property Name="watt" Type="int" />
+          <Property Name="Wire_meter" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="AdditionalComments" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <EntityType Name="SupplierMaster">
           <Key>
@@ -90,8 +108,9 @@
           <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SalesDetails" EntityType="Self.SalesDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales_Details" EntityType="Self.Sales_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierMaster" EntityType="Self.SupplierMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WattMaster" EntityType="Self.WattMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -142,18 +161,6 @@
           <Property Name="Amount_paid" Type="Int32" Nullable="false" />
           <Property Name="Paid" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="SalesDetail">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Sales_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Product_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SubTotal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="salesdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="SupplierMaster">
           <Key>
             <PropertyRef Name="SupplierId" />
@@ -177,7 +184,6 @@
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="ProductMasters" EntityType="Self.ProductMaster" />
           <EntitySet Name="Sales" EntityType="Self.Sale" />
-          <EntitySet Name="SalesDetails" EntityType="Self.SalesDetail" />
           <EntitySet Name="SupplierMasters" EntityType="Self.SupplierMaster" />
           <EntitySet Name="WattMasters" EntityType="Self.WattMaster" />
           <FunctionImport Name="productproc">
@@ -188,7 +194,39 @@
             <Parameter Name="description" Mode="In" Type="String" />
             <Parameter Name="price" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="PurchaseDetails" EntityType="SainiShopModel.PurchaseDetail" />
+          <EntitySet Name="Sales_Details" EntityType="SainiShopModel.Sales_Details" />
         </EntityContainer>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="purchase_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="additionalComment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sales_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sales_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sales_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="watt" Type="Int32" />
+          <Property Name="Wire_meter" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalComments" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -242,19 +280,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SalesDetails">
-            <EntityTypeMapping TypeName="SainiShopModel.SalesDetail">
-              <MappingFragment StoreEntitySet="SalesDetails">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Sales_id" ColumnName="Sales_id" />
-                <ScalarProperty Name="Product_id" ColumnName="Product_id" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Product_price" ColumnName="Product_price" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="salesdate" ColumnName="salesdate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SupplierMasters">
             <EntityTypeMapping TypeName="SainiShopModel.SupplierMaster">
               <MappingFragment StoreEntitySet="SupplierMaster">
@@ -276,6 +301,38 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="productproc" FunctionName="SainiShopModel.Store.productproc" />
+          <EntitySetMapping Name="PurchaseDetails">
+            <EntityTypeMapping TypeName="SainiShopModel.PurchaseDetail">
+              <MappingFragment StoreEntitySet="PurchaseDetails">
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="additionalComment" ColumnName="additionalComment" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Details">
+            <EntityTypeMapping TypeName="SainiShopModel.Sales_Details">
+              <MappingFragment StoreEntitySet="Sales_Details">
+                <ScalarProperty Name="AdditionalComments" ColumnName="AdditionalComments" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Wire_meter" ColumnName="Wire_meter" />
+                <ScalarProperty Name="watt" ColumnName="watt" />
+                <ScalarProperty Name="sales_date" ColumnName="sales_date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Product_price" ColumnName="Product_price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+                <ScalarProperty Name="Sales_id" ColumnName="Sales_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

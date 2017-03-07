@@ -31,9 +31,10 @@ namespace SaniShop.DAL
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<ProductMaster> ProductMasters { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
-        public virtual DbSet<SalesDetail> SalesDetails { get; set; }
         public virtual DbSet<SupplierMaster> SupplierMasters { get; set; }
         public virtual DbSet<WattMaster> WattMasters { get; set; }
+        public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual DbSet<Sales_Details> Sales_Details { get; set; }
     
         public virtual int productproc(Nullable<int> product_id, string product_name, Nullable<int> suppliers_id, Nullable<int> quantity, string description, Nullable<int> price)
         {

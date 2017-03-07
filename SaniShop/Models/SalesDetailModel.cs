@@ -22,6 +22,8 @@ namespace SaniShop.Models
         public string TotalAmount { get; set; }
         public string Description { get; set; }
         public List<SelectListItem> wattmain { get; set; }
-        public string wattid { get; set; }
+        public int wattid { get; set; }
+        public int watt { get; set; }
+        
     }
 }

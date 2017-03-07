@@ -12,14 +12,18 @@ namespace SaniShop.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class SalesDetail
+    public partial class Sales_Details
     {
         public int id { get; set; }
         public string Sales_id { get; set; }
-        public string Product_id { get; set; }
+        public string Product_name { get; set; }
         public string Quantity { get; set; }
         public string Product_price { get; set; }
-        public string SubTotal { get; set; }
-        public string salesdate { get; set; }
+        public string Amount { get; set; }
+        public string sales_date { get; set; }
+        public Nullable<int> watt { get; set; }
+        public Nullable<int> Wire_meter { get; set; }
+        public string Description { get; set; }
+        public string AdditionalComments { get; set; }
     }
 }

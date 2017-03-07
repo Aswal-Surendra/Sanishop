@@ -13,7 +13,6 @@
 {
 
     <html>
-
     <body>
         <div class="body-right">
          @Html.ActionLink("Sales History", "Index", "Home")
@@ -24,23 +23,23 @@
                 <tr>
                     <td>Iteam </td>
                     <td>
-                        @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--", 
+                   @if(Model.Productname != null)
+                   {
+
+                             @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--", 
                        new { @class = "form-control", @onchange = "FillWatt()" })
+                   }
                     </td>
                 </tr>
-
-
                 <tr>
                     <td>Iteam </td>
                     <td>
                        @Html.DropDownListFor(m => m.wattmain,
-       new SelectList(Enumerable.Empty<SelectListItem>(), "wattid", "wattmain"),
+                new SelectList(Enumerable.Empty<SelectListItem>(), "wattid", "wattmain"),
               "Select watt",
               new { @class = "form-control" })
                     </td>
                 </tr>
-
-
                 <tr>
                     <td>Iteam Discrption</td>
                     <td>
@@ -110,7 +109,6 @@
 
 
     function FillWatt() {
-        debugger;
         var stateId = jQuery.trim(jQuery('#Product_id').val()); 
         $.ajax({
             url: '/Sales/FillWatt',
