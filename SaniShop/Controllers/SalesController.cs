@@ -10,7 +10,7 @@ using SaniShop.Models;
 namespace SaniShop.Controllers
 {
     public class SalesController : Controller
-    {
+    {   
         // GET: Sales
         [HttpGet]
         public ActionResult Index()
@@ -20,8 +20,8 @@ namespace SaniShop.Controllers
             var query = db1.ProductMasters.Select(c => new SelectListItem
             {
                 Value = c.Product_id.ToString(),
-                Text = c.Product_name,
-                Selected = c.Product_id.Equals(3)
+                Text = c.Product_name
+                //Selected = c.Product_id.Equals(3)
             }).ToList();
 
             var model = new SalesDetailModel { Productname = query.ToList() };
@@ -44,24 +44,22 @@ namespace SaniShop.Controllers
         //}
 
         [HttpPost]
-        public ActionResult Index(SalesDetailModel request)
+        public ActionResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price)
         {
             Sales_Details obj = new Sales_Details();
-            obj.Description = request.Description;
-            foreach(var item in request.wattmain)
-            {
-                obj.watt = Convert.ToInt32(item.Text);// .wattid;
-            }
-            obj.Product_name = request.Product_id;
-            obj.Product_price = request.Product_price;
-            obj.Quantity = request.Quantity;
+            obj.Description = Desc;
+            obj.watt = Watts;
+            obj.Product_name = Item;
+            obj.Product_price = Price;
+            obj.Quantity = Quantity;
+            obj.Amount = TotalAmo;
             obj.sales_date = DateTime.Now.ToString();
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
                 objDb.Sales_Details.Add(obj);
                 objDb.SaveChanges();
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult FillWatt(int State)

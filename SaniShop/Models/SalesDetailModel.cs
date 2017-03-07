@@ -19,9 +19,11 @@ namespace SaniShop.Models
         public string SubTotal { get; set; }
         public string salesdate { get; set; }
         public List<SelectListItem> Productname { get; set; }
+        public string Product_name { get; set; }
         public string TotalAmount { get; set; }
         public string Description { get; set; }
         public List<SelectListItem> wattmain { get; set; }
+        public string watt_main { get; set; }
         public int wattid { get; set; }
         public int watt { get; set; }
         
