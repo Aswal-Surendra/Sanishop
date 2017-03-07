@@ -49,3 +49,26 @@
     </div>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("save").click(function () {
+            return checkauthtication()
+        });
+    });
+    function checkauthtication()
+    {
+        debugger;
+        var des = jQuery.trim(jQuery('#description').val());
+        if (des = "")
+        {
+            alert('plese enter a value in description textbox')
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
