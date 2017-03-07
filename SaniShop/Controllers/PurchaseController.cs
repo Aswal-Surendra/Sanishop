@@ -29,15 +29,14 @@ namespace SaniShop.Controllers
                     Selected = c.Product_id.Equals(3)
                 }).ToList();
 
-            var model = new ProductmasterModal { product_name = query.ToList() };
+            var model = new ProductModal {Productname= query.ToList()};
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult GetPurchaseHome(ProductmasterModal request)
+        public ActionResult GetPurchaseHome(ProductModal request)
         {
             ProductMaster obj1 = new ProductMaster();// {Product_name=request.product_name, };
-            
             obj1.Product_name = request.product_name;
             obj1.Description = request.description;
             obj1.UnitperPrice = request.unitperprice;

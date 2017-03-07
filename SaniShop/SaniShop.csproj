@@ -225,7 +225,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ProductmasterModal.cs" />
     <Compile Include="Models\ProductModal.cs" />
     <Compile Include="Models\SalesDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
