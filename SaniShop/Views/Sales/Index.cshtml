@@ -3,15 +3,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-
-
-
-@using (Html.BeginForm("Index", "Sales"))   
-{
-
     <html>
     <body>
         <div class="body-right">
@@ -23,12 +16,9 @@
                 <tr>
                     <td>Iteam </td>
                     <td>
-                   @if(Model.Productname != null)
-                   {
-
-                             @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--", 
+                      @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--", 
                        new { @class = "form-control", @onchange = "FillWatt()" })
-                   }
+                   
                     </td>
                 </tr>
                 <tr>
@@ -81,7 +71,7 @@
         </div>*@
     </body>
 </html>
-}
+
 
 
 
@@ -94,8 +84,10 @@
     });
 
     function checkAuthentication() {
-
-        //debugger;
+        var item = $("#Product_id option:selected").text();  //jQuery.trim(jQuery('#Product_id').text());
+        var watt = $("#wattmain option:selected").text();  //jQuery.trim(jQuery('#wattmain').text());
+        var quantity = jQuery.trim(jQuery('#Quantity').val());
+        var totalamount = jQuery.trim(jQuery('#TotalAmount').val());
         var desc = jQuery.trim(jQuery('#Description').val());
         var price = jQuery.trim(jQuery('#Product_price').val());
         if (desc == "" && price == "") {
@@ -103,7 +95,17 @@
             return false;
         }
         else {
-            return true;
+            $.ajax({
+                url: '/Sales/Index',
+                type: "POST",
+                dataType: "JSON",
+                data: { Quantity: quantity, Item: item, Watts: watt, TotalAmo: totalamount, Desc: desc, Price: price },
+                //success: function (data) {
+                    
+                //}
+                
+            });
+
         }
     }
 
