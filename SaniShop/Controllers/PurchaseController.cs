@@ -21,28 +21,32 @@ namespace SaniShop.Controllers
         [HttpGet]
         public ActionResult GetPurchaseHome()
         {
-                var db = new SainiShopEntities1();
-                var query = db.ProductMasters.Select(c => new SelectListItem
-                {
-                    Value = c.Product_id.ToString(),
-                    Text = c.Product_name,
-                    Selected = c.Product_id.Equals(3)
-                }).ToList();
+        //        var db = new sainishopentities1();
+        //        var query = db.productmasters.select(c => new selectlistitem
+        //        {
+        //            value = c.product_id.tostring(),
+        //            text = c.product_name,
+        //            selected = c.product_id.equals(3)
+        //        }).tolist();
 
-            var model = new ProductModal {Productname= query.ToList()};
-            return View(model);
+        //    var model = new PurchasemasterModal {Productname= query.ToList()};
+            return View();
         }
 
         [HttpPost]
-        public ActionResult GetPurchaseHome(ProductModal request)
+        public ActionResult GetPurchaseHome(PurchasemasterModal request)
         {
-            ProductMaster obj1 = new ProductMaster();// {Product_name=request.product_name, };
-            obj1.Product_name = request.product_name;
-            obj1.Description = request.description;
-            obj1.UnitperPrice = request.unitperprice;
+            PurchaseDetail obj1 = new PurchaseDetail();// {Product_name=request.product_name, };
+            obj1.SupplierName = request.SupplierName;
+            obj1.product_name = request.product_name;
+            obj1.Quantity = request.Quantity;
+            obj1.price = request.price;
+           
+            
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
-                objDb.ProductMasters.Add(obj1);
+                objDb.PurchaseDetails.Add(obj1);
+                //objDb.ProductMasters.Add(obj1);
                 objDb.SaveChanges();
             }
 
