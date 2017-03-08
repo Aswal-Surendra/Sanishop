@@ -98,10 +98,6 @@
     });
 
     $("#Close").click(function () {
-        return Refreshpage();
-    });
-
-    function Refreshpage() {
         $.ajax({
             url: '/Sales/Index',
             type: "GET",
@@ -110,19 +106,11 @@
                 jQuery.trim(jQuery('#TotalAmount').val(''));
                 jQuery.trim(jQuery('#Description').val(''));
                 jQuery.trim(jQuery('#Product_price').val(''));
+                jQuery.trim(jQuery('#AdditionalComments').val(''));
             }
         });
-    }
-        $("#dialog").dialog({
-            autoOpen: false,
-            modal: true,
-            title: "Details",
-            buttons: {
-                Close: function () {
-                    $(this).dialog('close');
-                }
-            }
-        });
+    });
+   
     function checkAuthentication() {
         var item = $("#Product_id option:selected").text();  //jQuery.trim(jQuery('#Product_id').text());
         var watt = $("#wattmain option:selected").text();  //jQuery.trim(jQuery('#wattmain').text());
