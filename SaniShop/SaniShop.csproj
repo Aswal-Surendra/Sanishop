@@ -234,6 +234,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTable.css" />
     <Content Include="Content\style-ie.css" />
     <Content Include="Content\style.css" />
     <Content Include="DAL\SainiShop.Context.tt">
@@ -271,6 +272,7 @@
     <Content Include="images\right-box1.jpg" />
     <Content Include="images\sale.jpg" />
     <Content Include="images\search.jpg" />
+    <Content Include="Scripts\2013js.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="DAL\SainiShop.edmx">
@@ -333,6 +335,7 @@
     <Content Include="Views\Sales\SalesIndex.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
     <Content Include="Views\Purchase\GetPurchaseHome.cshtml" />
+    <Content Include="Views\Sales\SalesTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

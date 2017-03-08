@@ -8,7 +8,7 @@
     <html>
     <body>
         <div class="body-right">
-         @Html.ActionLink("Sales History", "Index", "Home")
+         @Html.ActionLink("Sales History", "SalesTable", "Sales")
         </div>
 
         <div>
@@ -151,8 +151,9 @@
             success: function (data) {
                 $("#wattmain").html(""); // clear before appending new list 
                 $.each(data, function (i, watt) {
-                    $("#wattmain").append(
-                        $('<option></option>').val(watt.id).html(watt.watt));
+                    $("#wattmain").append( $('<option></option>').val(watt.id).html(watt.watt));
+                    $("#Description").append(jQuery.trim(jQuery('#Description').val(watt.description)));
+                    $("#Product_price").append(jQuery.trim(jQuery('#Product_price').val(watt.price)));
                 });
             }
         });

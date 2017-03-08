@@ -20,7 +20,8 @@ namespace SaniShop.Controllers
             var query = db1.ProductMasters.Select(c => new SelectListItem
             {
                 Value = c.Product_id.ToString(),
-                Text = c.Product_name
+                Text = c.Product_name,
+                
                 //Selected = c.Product_id.Equals(3)
             }).ToList();
 
@@ -74,7 +75,9 @@ namespace SaniShop.Controllers
                         select new
                         {
                             id = prod.Product_id,
-                            watt = wat.watt
+                            watt = wat.watt,
+                            description = prod.Description,
+                            price = prod.UnitperPrice
                         }).ToList();
 
             return Json(watt, JsonRequestBehavior.AllowGet);
@@ -94,6 +97,14 @@ namespace SaniShop.Controllers
             var amount = Convert.ToInt32(Unitprice) * Convert.ToInt32(Quantity) ;
             var totalprice = (amount * margin / 100) + amount;
             return Convert.ToDecimal(totalprice);
+        }
+
+        public ActionResult SalesTable()
+        {
+            SainiShopEntities1 objDb = new SainiShopEntities1();
+            var records = objDb.Sales_Details;
+            return View(records);
+
         }
     }
 }
