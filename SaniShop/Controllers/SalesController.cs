@@ -44,7 +44,7 @@ namespace SaniShop.Controllers
         //}
 
         [HttpPost]
-        public JsonResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price)
+        public JsonResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price , string Addcomments)
         {
             Sales_Details obj = new Sales_Details();
             obj.Description = Desc;
@@ -54,6 +54,7 @@ namespace SaniShop.Controllers
             obj.Quantity = Quantity;
             obj.Amount = TotalAmo;
             obj.sales_date = DateTime.Now.ToString();
+            obj.AdditionalComments = Addcomments;
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
                 objDb.Sales_Details.Add(obj);

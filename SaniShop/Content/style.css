@@ -14,7 +14,7 @@ body
 
 .menu{
   width: 776px;
-  height: 62px;
+  height: 27px;
   background-image: url(../images/menu.jpg);
   background-repeat: repeat-x;
 
@@ -23,7 +23,7 @@ body
 .logo{
   width: 701px;
   font-family:Arial, Helvetica, sans-serif;
-  font-size:48px;
+  font-size:33px;
   color:#007CAA;
   margin-top:10px;
   margin-bottom:10px;
@@ -183,8 +183,8 @@ body
 
 .body-middle
 {
-  width: 776px;
-  height: 680px;
+  width: 787px;
+  height: 500px;
   float: right;
   background-color:lightskyblue;
 }

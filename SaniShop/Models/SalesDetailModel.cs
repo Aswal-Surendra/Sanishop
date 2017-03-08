@@ -26,6 +26,8 @@ namespace SaniShop.Models
         public string watt_main { get; set; }
         public int wattid { get; set; }
         public int watt { get; set; }
-        
+
+        public string AdditionalComments { get; set; }
+
     }
 }

@@ -51,6 +51,14 @@
                         @Html.TextBoxFor(m => m.TotalAmount, new { @class = "inputComn" })
                     </td>
                 </tr>   
+                <tr>
+                    <td align="left">Additional Comments</td>
+                    <td>
+                        @Html.TextAreaFor(m => m.AdditionalComments, new { @class = "inputComn" })
+                    </td>
+                </tr>
+
+
             </table>
             <table class="table" style="width:auto">
                 <tr style="text-align:center">
@@ -122,6 +130,8 @@
         var totalamount = jQuery.trim(jQuery('#TotalAmount').val());
         var desc = jQuery.trim(jQuery('#Description').val());
         var price = jQuery.trim(jQuery('#Product_price').val());
+        var comments = jQuery.trim(jQuery('#AdditionalComments').val());
+
         if (desc == "" && price == "") {
             alert('Please enter the discription and price')
             return false;
@@ -131,7 +141,7 @@
                 url: '/Sales/Index',
                 type: "POST",
                 dataType: "JSON",
-                data: { Quantity: quantity, Item: item, Watts: watt, TotalAmo: totalamount, Desc: desc, Price: price },
+                data: { Quantity: quantity, Item: item, Watts: watt, TotalAmo: totalamount, Desc: desc, Price: price, Addcomments: comments },
                 success: function (data) {                    
                     if (data.IsSuccess) {                     
                         $("#myModal").modal('show');
