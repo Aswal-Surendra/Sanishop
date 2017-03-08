@@ -66,14 +66,27 @@
 </table>
 
         </div>
-        @*<div >
-            <input  type="submit" class="contactBtn signupBtn" value="Submit" />
-        </div>*@
+
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Data Saved Successfully !!!</p>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="Close">Close</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
-
-
-
 
 <script type="text/javascript">
 
@@ -83,6 +96,33 @@
         });
     });
 
+    $("#Close").click(function () {
+        return Refreshpage();
+    });
+
+    function Refreshpage() {
+        $.ajax({
+            url: '/Sales/Index',
+            type: "GET",
+            success: function (data) {
+                jQuery.trim(jQuery('#Quantity').val(''));
+                jQuery.trim(jQuery('#TotalAmount').val(''));
+                jQuery.trim(jQuery('#Description').val(''));
+                jQuery.trim(jQuery('#Product_price').val(''));
+            }
+        });
+    }
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            title: "Details",
+            buttons: {
+                Close: function () {
+                    $(this).dialog('close');
+                }
+            }
+        });
     function checkAuthentication() {
         var item = $("#Product_id option:selected").text();  //jQuery.trim(jQuery('#Product_id').text());
         var watt = $("#wattmain option:selected").text();  //jQuery.trim(jQuery('#wattmain').text());
@@ -100,16 +140,17 @@
                 type: "POST",
                 dataType: "JSON",
                 data: { Quantity: quantity, Item: item, Watts: watt, TotalAmo: totalamount, Desc: desc, Price: price },
-                //success: function (data) {
-                    
-                //}
-                
+                success: function (data) {                    
+                    if (data.IsSuccess) {                     
+                        $("#myModal").modal('show');
+                    }                   
+                 },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
             });
-
         }
     }
-
-
     function FillWatt() {
         var stateId = jQuery.trim(jQuery('#Product_id').val()); 
         $.ajax({
@@ -126,5 +167,4 @@
             }
         });
     }
-
 </script>

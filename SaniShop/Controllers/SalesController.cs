@@ -44,7 +44,7 @@ namespace SaniShop.Controllers
         //}
 
         [HttpPost]
-        public ActionResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price)
+        public JsonResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price)
         {
             Sales_Details obj = new Sales_Details();
             obj.Description = Desc;
@@ -59,7 +59,8 @@ namespace SaniShop.Controllers
                 objDb.Sales_Details.Add(obj);
                 objDb.SaveChanges();
             }
-            return RedirectToAction("Index");
+            var response = new Response(true, "Contact Successfully Submitted");
+            return Json(response);            
         }
 
         public ActionResult FillWatt(int State)
