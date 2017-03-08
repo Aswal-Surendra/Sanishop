@@ -18,5 +18,6 @@ namespace SaniShop.DAL
         public string Product_name { get; set; }
         public string Description { get; set; }
         public Nullable<int> UnitperPrice { get; set; }
+        public Nullable<int> marginPerUnit { get; set; }
     }
 }

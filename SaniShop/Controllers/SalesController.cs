@@ -63,13 +63,13 @@ namespace SaniShop.Controllers
             return Json(response);            
         }
 
-        public ActionResult FillWatt(int State)
+        public ActionResult FillWatt(int Productid)
         {
             SainiShopEntities1 objDb = new SainiShopEntities1();
             var watt = (from prod in objDb.ProductMasters
                         join wat in objDb.WattMasters
                         on prod.Product_id equals wat.product_id
-                        where prod.Product_id==State
+                        where prod.Product_id== Productid
                         select new
                         {
                             id = prod.Product_id,
@@ -79,6 +79,20 @@ namespace SaniShop.Controllers
             return Json(watt, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult TotalAmount(string Unitprice, string Quantity, int  Productid)
+        {
+            SainiShopEntities1 objDb = new SainiShopEntities1();
+            var margin = objDb.ProductMasters.Where(z => z.Product_id == Productid).Select(x => x.marginPerUnit).FirstOrDefault();
+            var response = TotalPrice(Unitprice, Quantity, margin);
+            return Json(response);
+        }
 
+
+        public decimal TotalPrice(string Unitprice, string Quantity, int? margin)
+        {
+            var amount = Convert.ToInt32(Unitprice) * Convert.ToInt32(Quantity) ;
+            var totalprice = (amount * margin / 100) + amount;
+            return Convert.ToDecimal(totalprice);
+        }
     }
 }

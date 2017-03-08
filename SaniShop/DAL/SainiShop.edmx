@@ -37,6 +37,7 @@
           <Property Name="Product_name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="250" />
           <Property Name="UnitperPrice" Type="int" />
+          <Property Name="marginPerUnit" Type="int" />
         </EntityType>
         <EntityType Name="PurchaseDetails">
           <Key>
@@ -150,6 +151,7 @@
           <Property Name="Product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="UnitperPrice" Type="Int32" />
+          <Property Name="marginPerUnit" Type="Int32" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -262,6 +264,7 @@
           <EntitySetMapping Name="ProductMasters">
             <EntityTypeMapping TypeName="SainiShopModel.ProductMaster">
               <MappingFragment StoreEntitySet="ProductMaster">
+                <ScalarProperty Name="marginPerUnit" ColumnName="marginPerUnit" />
                 <ScalarProperty Name="Product_id" ColumnName="Product_id" />
                 <ScalarProperty Name="Product_name" ColumnName="Product_name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
