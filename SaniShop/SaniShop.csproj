@@ -228,6 +228,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModal.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\PurchasemasterModal.cs" />
     <Compile Include="Models\SalesDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

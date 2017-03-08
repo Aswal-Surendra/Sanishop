@@ -1,4 +1,5 @@
-﻿@model SaniShop.Models.ProductModal
+﻿@model SaniShop.Models.PurchasemasterModal
+
 @{
 
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,23 +21,38 @@
 {
         <table>
             <tr>
-                <td>ProductName</td>
+                <td>SupplierName</td>
                 <td>
 
-                    @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select One--")
+                    @*@Html.DropDownListFor(m => m.id, Model.SupplierName, "--Select One--")*@
 
 
-                @*@Html.TextBoxFor(m => m.product_name)*@</td>
+               @Html.TextBoxFor(m =>m.SupplierName)</td>
+            </tr>
+
+            <tr>
+                <td>ProductName</td>
+                <td>@Html.TextBoxFor(m => m.product_name)</td>
             </tr>
 
             <tr>
                 <td>Description</td>
-                <td>@Html.TextBoxFor(m => m.description)</td>
+                <td>@Html.TextBoxFor(m =>m.Description)</td>
             </tr>
 
             <tr>
-                <td>UnitperPrice</td>
-                <td>@Html.TextBoxFor(m => m.unitperprice)</td>
+                <td>Quantity</td>
+                <td>@Html.TextBoxFor(m => m.Quantity)</td>
+            </tr>
+
+            <tr>
+                <td>Price</td>
+                <td>@Html.TextBoxFor(m => m.price)</td>
+            </tr>
+
+            <tr>
+                <td>AdditionalComments</td>
+                <td>@Html.TextBoxFor(m => m.additionalComment)</td>
             </tr>
 
             <tr>
