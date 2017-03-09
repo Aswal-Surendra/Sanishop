@@ -185,7 +185,7 @@ body
 {
   width: 787px;
   height: 500px;
-  float: right;
+  float: inherit;
   background-color:lightskyblue;
 }
 .body-middle-box1
