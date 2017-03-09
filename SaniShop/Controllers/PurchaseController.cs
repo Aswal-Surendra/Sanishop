@@ -17,7 +17,6 @@ namespace SaniShop.Controllers
             return View();
         }
 
-
         [HttpGet]
         public ActionResult GetPurchaseHome()
         {
@@ -56,7 +55,6 @@ namespace SaniShop.Controllers
 
         public Dictionary<int, string> ProductList()
         {
-
             Dictionary<int, string> lista = new Dictionary<int, string>();
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {

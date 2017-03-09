@@ -9,7 +9,6 @@ namespace SaniShop.Models
 {
     public class SalesDetailModel
     {
-
         public int id { get; set; }
         public string CustSaleID { get; set; }
         public string Sales_id { get; set; }
