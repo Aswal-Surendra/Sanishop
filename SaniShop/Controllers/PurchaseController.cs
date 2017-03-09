@@ -20,17 +20,20 @@ namespace SaniShop.Controllers
 
         [HttpGet]
         public ActionResult GetPurchaseHome()
-        {
-        //        var db = new sainishopentities1();
-        //        var query = db.productmasters.select(c => new selectlistitem
-        //        {
-        //            value = c.product_id.tostring(),
-        //            text = c.product_name,
-        //            selected = c.product_id.equals(3)
-        //        }).tolist();
 
-        //    var model = new PurchasemasterModal {Productname= query.ToList()};
-            return View();
+        {
+
+            var db1 = new SainiShopEntities1();
+            var query = db1.SupplierMasters.Select(c => new SelectListItem
+            {
+                Value = c.SupplierId.ToString(),
+                Text = c.SupplierName,
+
+                //Selected = c.Product_id.Equals(3)
+            }).ToList();
+
+            var model = new PurchasemasterModal { supplierName = query.ToList() };
+            return View(model);
         }
 
         [HttpPost]
@@ -38,7 +41,7 @@ namespace SaniShop.Controllers
         {
             PurchaseDetail obj1 = new PurchaseDetail();// {Product_name=request.product_name, };
             obj1.SupplierName = request.SupplierName;
-            obj1.product_name = request.product_name;
+           // obj1.product_name = request.product_name;
             obj1.Quantity = request.Quantity;
             obj1.price = request.price;
            
@@ -54,21 +57,39 @@ namespace SaniShop.Controllers
 
         }
 
-        public Dictionary<int, string> ProductList()
+        public ActionResult fillProductName(int supplierid)
         {
+            SainiShopEntities1 objDb = new SainiShopEntities1();
+            var sup = (from supm in objDb.SupplierMasters
+                       join prom in objDb.ProductMasters
+                       on supm.SupplierId equals prom.Product_id
+                       where supm.SupplierId == supplierid
+                        select new
+                        {
+                            id = supm.SupplierId,
+                           sup = prom.Product_name,
+                            //description = prom.Description,
+                            //price = prom.UnitperPrice
+                        }).ToList();
 
-            Dictionary<int, string> lista = new Dictionary<int, string>();
-            using (SainiShopEntities1 objDb = new SainiShopEntities1())
-            {
-             var obj = (from k in objDb.ProductMasters select new { k.Product_id, k.Product_name}).ToList();// .ToList();
-
-                foreach (var iteam in obj)
-                {
-                    lista.Add(iteam.Product_id, iteam.Product_name);
-                }
-            }
-            return lista;
+            return Json(sup, JsonRequestBehavior.AllowGet);
         }
+
+        //public Dictionary<int, string> ProductList()
+        //{
+
+        //    Dictionary<int, string> lista = new Dictionary<int, string>();
+        //    using (SainiShopEntities1 objDb = new SainiShopEntities1())
+        //    {
+        //     var obj = (from k in objDb.ProductMasters select new { k.Product_id, k.Product_name}).ToList();// .ToList();
+
+        //        foreach (var iteam in obj)
+        //        {
+        //            lista.Add(iteam.Product_id, iteam.Product_name);
+        //        }
+        //    }
+        //    return lista;
+        //}
 
     }
 }
