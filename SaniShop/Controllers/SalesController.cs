@@ -9,6 +9,7 @@ using SaniShop.Models;
 
 namespace SaniShop.Controllers
 {
+    [Authorize]
     public class SalesController : Controller
     {   
         // GET: Sales
