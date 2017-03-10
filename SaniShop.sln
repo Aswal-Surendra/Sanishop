@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaniShop", "SaniShop\SaniShop.csproj", "{AF8A4C9B-D825-4A74-A10E-CF1547502E7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAPI", "CoreAPI\CoreAPI.csproj", "{6A701EDB-1403-44BF-9B08-65754A84D5ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF8A4C9B-D825-4A74-A10E-CF1547502E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF8A4C9B-D825-4A74-A10E-CF1547502E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF8A4C9B-D825-4A74-A10E-CF1547502E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A701EDB-1403-44BF-9B08-65754A84D5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A701EDB-1403-44BF-9B08-65754A84D5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A701EDB-1403-44BF-9B08-65754A84D5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A701EDB-1403-44BF-9B08-65754A84D5ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace SaniShop.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : Controller 
     {
         // GET: Login
         [HttpGet]

@@ -15,7 +15,10 @@
     <![endif]-->
 </head>
 <body>    
-    <div>@Html.ActionLink("Logout", "Logout", "Login")</div>
+    <table align="right">
+        <tr><td>@User.Identity.Name</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>@Html.ActionLink("Logout", "Logout", "Login")</td></tr>
+    </table>
+    <div></div>
     <center>
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>

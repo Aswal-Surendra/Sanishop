@@ -9,13 +9,25 @@ using SaniShop.Models;
 
 namespace SaniShop.Controllers
 {
-    [Authorize]
+     
     public class SalesController : Controller
-    {   
+    {
+        public SalesController()
+        {
+            Identity obj = new Identity();
+            if (!obj.Identitys())
+            {
+                             
+            }
+        }
+
         // GET: Sales
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Index()
         {
+            var use = User.Identity.Name.ToString();
+            var ause = User.Identity;
 
             var db1 = new SainiShopEntities1();
             var query = db1.ProductMasters.Select(c => new SelectListItem
