@@ -22,7 +22,7 @@ namespace SaniShop.Controllers
         }
 
         // GET: Sales
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Index()
         {
