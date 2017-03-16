@@ -9,7 +9,7 @@ using SaniShop.Models;
 
 namespace SaniShop.Controllers
 {
-     
+    [CustomAuthorize("Admin")]
     public class SalesController : Controller
     {
         public SalesController()

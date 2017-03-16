@@ -19,8 +19,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewStockController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="CustomAuthorizeAttribute .cs" />
     <Compile Include="DAL\Complaint.cs">
       <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>

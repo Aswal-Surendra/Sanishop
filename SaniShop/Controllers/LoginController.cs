@@ -24,12 +24,15 @@ namespace SaniShop.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     return RedirectToAction("Index", "Home");
+                    
                 }
                 else
                 {
                     ModelState.AddModelError("", "Login data is incorrect!");
                 }
-            return View(user);            
+
+            return View(user);    
+                    
         }
 
         public ActionResult Logout()
