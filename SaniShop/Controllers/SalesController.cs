@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SaniShop.Models;
-
+using DataTables.Mvc;
 
 namespace SaniShop.Controllers
 {
@@ -17,7 +17,7 @@ namespace SaniShop.Controllers
             Identity obj = new Identity();
             if (!obj.Identitys())
             {
-                             
+
             }
         }
 
@@ -42,7 +42,7 @@ namespace SaniShop.Controllers
             return View(model);
         }
         [HttpPost]
-        public JsonResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price , string Addcomments)
+        public JsonResult Index(string Quantity, string Item, int Watts, string TotalAmo, string Desc, string Price, string Addcomments)
         {
             Sales_Details obj = new Sales_Details();
             obj.Description = Desc;
@@ -59,7 +59,7 @@ namespace SaniShop.Controllers
                 objDb.SaveChanges();
             }
             var response = new Response(true, "Contact Successfully Submitted");
-            return Json(response);            
+            return Json(response);
         }
 
         public ActionResult FillWatt(int Productid)
@@ -68,7 +68,7 @@ namespace SaniShop.Controllers
             var watt = (from prod in objDb.ProductMasters
                         join wat in objDb.WattMasters
                         on prod.Product_id equals wat.product_id
-                        where prod.Product_id== Productid
+                        where prod.Product_id == Productid
                         select new
                         {
                             id = prod.Product_id,
@@ -80,7 +80,7 @@ namespace SaniShop.Controllers
             return Json(watt, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult TotalAmount(string Unitprice, string Quantity, int  Productid)
+        public JsonResult TotalAmount(string Unitprice, string Quantity, int Productid)
         {
             SainiShopEntities1 objDb = new SainiShopEntities1();
             var margin = objDb.ProductMasters.Where(z => z.Product_id == Productid).Select(x => x.marginPerUnit).FirstOrDefault();
@@ -91,17 +91,67 @@ namespace SaniShop.Controllers
 
         public decimal TotalPrice(string Unitprice, string Quantity, int? margin)
         {
-            var amount = Convert.ToInt32(Unitprice) * Convert.ToInt32(Quantity) ;
+            var amount = Convert.ToInt32(Unitprice) * Convert.ToInt32(Quantity);
             var totalprice = (amount * margin / 100) + amount;
             return Convert.ToDecimal(totalprice);
         }
 
-        public ActionResult SalesTable()
+        public ActionResult salesDataView()
+        {
+            return View();
+        }
+
+        public ActionResult salesDataTable([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
         {
             SainiShopEntities1 objDb = new SainiShopEntities1();
-            var records = objDb.Sales_Details;
-            return View(records);
+            //var records = objDb.Sales_Details;
+            IQueryable<Sales_Details> query = objDb.Sales_Details;
+            var totalCount = query.Count();
+
+            #region Filtering
+            // Apply filters for searching
+            if (requestModel.Search.Value != string.Empty)
+            {
+                var value = requestModel.Search.Value.Trim();
+                query = query.Where(p => p.Product_name.Contains(value) ||
+                                         p.Quantity.Contains(value) ||
+                                         p.sales_date.Contains(value) ||
+                                         p.Product_price.Contains(value)
+                                   );
+            }
+            var filteredCount = query.Count();
+            #endregion Filtering
+
+            #region Sorting
+            // Sorting
+            var sortedColumns = requestModel.Columns.GetSortedColumns();
+            var orderByString = String.Empty;
+
+            foreach (var column in sortedColumns)
+            {
+                orderByString += orderByString != String.Empty ? "," : "";
+                orderByString += (column.Data) + (column.SortDirection == Column.OrderDirection.Ascendant ? " asc" : " desc");
+            }
+
+            query = query.OrderBy(x => x.sales_date??"Product_price asc");//orderByString == string.Empty ? "Product_price asc" : orderByString);
+           
+
+            #endregion Sorting
+
+            // Paging
+            query = query.Skip(requestModel.Start).Take(requestModel.Length);
+            var data = query.Select(asset => new
+            {
+                Id = asset.id,
+                ProductName = asset.Product_name,
+                ProductPrice = asset.Product_price,
+                SalesDate = asset.sales_date,
+                Quantity = asset.Quantity
+            }).ToList();
+            return Json(new DataTablesResponse(requestModel.Draw, data, filteredCount, totalCount), JsonRequestBehavior.AllowGet);
 
         }
+
     }
+
 }
