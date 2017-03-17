@@ -15,10 +15,10 @@
     <![endif]-->
 </head>
 <body>    
-    <table align="right">
-        <tr><td>@User.Identity.Name</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>@Html.ActionLink("Logout", "Logout", "Login")</td></tr>
-    </table>
-    <div></div>
+    @*<table align="right">
+        <tr><td>Welcome @HttpContext.Current.Session["key"].ToString();</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>@Html.ActionLink("Logout", "Logout", "Login")</td></tr>
+    </table>*@
+    <div style="text-align:left">Welcome @HttpContext.Current.Session["key"].ToString()!!!!</div> <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
     <center>
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>
