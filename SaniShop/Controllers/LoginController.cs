@@ -20,11 +20,12 @@ namespace SaniShop.Controllers
         [HttpPost]
         public ActionResult Login(Users user)
         {
-                if (user.IsValid(user.UserName, user.Password))
+            Session["key"] = string.Empty;
+            Session["key"] = user.UserName;
+            if (user.IsValid(user.UserName, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                    return RedirectToAction("Index", "Home");
-                    
+                    return RedirectToAction("Index", "Home");                    
                 }
                 else
                 {
