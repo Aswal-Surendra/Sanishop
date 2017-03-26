@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
+   
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -18,7 +19,12 @@
     @*<table align="right">
         <tr><td>Welcome @HttpContext.Current.Session["key"].ToString();</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>@Html.ActionLink("Logout", "Logout", "Login")</td></tr>
     </table>*@
-    <div style="text-align:left">Welcome @HttpContext.Current.Session["key"].ToString()!!!!</div> <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
+    @if(Session["key"] != null)
+    { 
+    <div style="text-align:left">Welcome @HttpContext.Current.Session["key"].ToString()!!!!</div> 
+    }
+    <div style="text-align:left">Welcome Please login first for the current user</div>  
+    <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
     <center>
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>

@@ -31,30 +31,57 @@ namespace SaniShop.Controllers
                 //Selected = c.Product_id.Equals(3)
             }).ToList();
 
-            var model = new PurchasemasterModal { supplierName = query.ToList() };
+            var model = new PurchasemasterModal { supplier_Name = query.ToList() };
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult GetPurchaseHome(PurchasemasterModal request)
+        public JsonResult GetPurchaseHome( string suplid, string Productname, string Quantity, string Desc, decimal Price, string Addcomments)
         {
-            PurchaseDetail obj1 = new PurchaseDetail();// {Product_name=request.product_name, };
-            obj1.SupplierName = request.SupplierName;
-           // obj1.product_name = request.product_name;
-            obj1.Quantity = request.Quantity;
-            obj1.price = request.price;
-           
-            
+            PurchaseDetail obj1 = new PurchaseDetail();
+            obj1.SupplierName = suplid;
+            obj1.product_name = Productname;
+            obj1.Description = Desc;
+            obj1.Quantity = Quantity;
+            obj1.price = Price;
+            obj1.additionalComment = Addcomments;
+            obj1.Description = Desc;
+            obj1.PurchaseDate = DateTime.Now.ToString();
+            //obj.watt = Watts;
+            //obj.Product_name = Item;
+            //obj.Product_price = Price;
+            //obj.Quantity = Quantity;
+            //obj.Amount = TotalAmo;
+            //obj.sales_date = DateTime.Now.ToString();
+            //obj.AdditionalComments = Addcomments;
             using (SainiShopEntities1 objDb = new SainiShopEntities1())
             {
                 objDb.PurchaseDetails.Add(obj1);
-                //objDb.ProductMasters.Add(obj1);
                 objDb.SaveChanges();
             }
-
-            return View();
-
+            var response = new Response(true, "Contact Successfully Submitted");
+            return Json(response);
+            
         }
+        //public ActionResult GetPurchaseHome(PurchasemasterModal request)
+        //{
+        //    PurchaseDetail obj1 = new PurchaseDetail();// {Product_name=request.product_name, };
+        //    obj1.SupplierName = request.SupplierName;
+        //   // obj1.product_name = request.product_name;
+        //    obj1.Quantity = request.Quantity;
+        //    obj1.price = request.price;
+
+
+        //    using (SainiShopEntities1 objDb = new SainiShopEntities1())
+        //    {
+        //        objDb.PurchaseDetails.Add(obj1);
+        //        //objDb.ProductMasters.Add(obj1);
+        //        objDb.SaveChanges();
+        //    }
+
+        //    return View();
+
+        //}
 
         public ActionResult fillProductName(int supplierid)
         {
@@ -67,7 +94,7 @@ namespace SaniShop.Controllers
                         {
                             id = supm.SupplierId,
                            sup = prom.Product_name,
-                            //description = prom.Description,
+                            description = prom.Description,
                             //price = prom.UnitperPrice
                         }).ToList();
 

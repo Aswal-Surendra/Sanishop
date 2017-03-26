@@ -34,6 +34,9 @@ namespace SaniShop
             // jquery datatables css file
             bundles.Add(new StyleBundle("~/Content/datatables").Include(
                       "~/Content/DataTables/css/dataTables.bootstrap.css"));
+
+            //bundles.Add(new StyleBundle("~/Content/testcss").Include(
+            //          "~/Content/DataTables/bootstrap.css"));
         }
     }
 }

@@ -110,7 +110,7 @@
             }
         });
     });
-   
+    debugger;
     function checkAuthentication() {
         var item = $("#Product_id option:selected").text();  //jQuery.trim(jQuery('#Product_id').text());
         var watt = $("#wattmain option:selected").text();  //jQuery.trim(jQuery('#wattmain').text());
@@ -124,7 +124,9 @@
             alert('Please enter the discription and price')
             return false;
         }
+            
         else {
+            debugger;
             $.ajax({
                 url: '/Sales/Index',
                 type: "POST",

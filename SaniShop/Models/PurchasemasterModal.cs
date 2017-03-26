@@ -24,7 +24,7 @@ namespace SaniShop.Models
         public string Product_id { get; set; }
         public List<SelectListItem> Productname { get; set; }
         public string supplier_id { get; set; }
-        public List<SelectListItem> supplierName { get; set; }
+        public  List<SelectListItem> supplier_Name { get; set; }
 
         // public string Product_name { get; set; }
         // public string TotalAmount { get; set; }
