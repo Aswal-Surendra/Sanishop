@@ -14,6 +14,7 @@
         <EntityTypeShape EntityType="SainiShopModel.PurchaseDetail" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="SainiShopModel.Sales_Details" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="SainiShopModel.User" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SainiShopModel.Regitration" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

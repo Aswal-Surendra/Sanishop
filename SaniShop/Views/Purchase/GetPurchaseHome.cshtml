@@ -38,7 +38,7 @@
                     <td align="left">ProductName</td>
                     <td>
                         @Html.DropDownListFor(m => m.Productname,
-                new SelectList(Enumerable.Empty<SelectListItem>(), "product_Id", "productname"), "--Select product--",
+                new SelectList(Enumerable.Empty<SelectListItem>(), "product_Id", "productname"),
                 new { @class = "form-control" })
                         @*<td>@Html.TextBoxFor(m => m.product_name)</td>*@
                     </td>
@@ -67,7 +67,7 @@
 
                 <tr>
                     <td colspan="2" style="text-align:center">
-                        <input type="button" id="Purchase" name="save" value="save" />
+                        <input type="submit" id="Purchase" name="save" value="save" />
                     </td>
                 </tr>
             </table>
@@ -112,7 +112,8 @@
             }
         });
     });
-    debugger;
+    
+
     function checkAuthentication() {
         debugger;
         var supid = $("#supplier_id option:selected").text();  //jQuery.trim(jQuery('#Product_id').text());

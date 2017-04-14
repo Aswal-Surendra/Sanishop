@@ -19,18 +19,23 @@
     @*<table align="right">
         <tr><td>Welcome @HttpContext.Current.Session["key"].ToString();</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>@Html.ActionLink("Logout", "Logout", "Login")</td></tr>
     </table>*@
+    @*<script src="~/Scripts/jquery.validate.js"></script> 
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+    
     @if(Session["key"] != null)
     { 
     <div style="text-align:left">Welcome @HttpContext.Current.Session["key"].ToString()!!!!</div> 
     }
     <div style="text-align:left">Welcome Please login first for the current user</div>  
     <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
+
     <center>
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>
             <div class="menu">
                 <ul class="solidblockmenu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Register", "Register1", "Login")</li>*@
                     <li>@Html.ActionLink("Sales Market", "Index", "Sales")</li>
                     <li>@Html.ActionLink("Purchase Market", "GetPurchaseHome", "Purchase")</li>
                     <li>@Html.ActionLink("Reports", "Index", "Report")</li>

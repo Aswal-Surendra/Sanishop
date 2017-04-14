@@ -195,6 +195,9 @@
     <Compile Include="DAL\PurchaseDetail.cs">
       <DependentUpon>SainiShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Regitration.cs">
+      <DependentUpon>SainiShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\SainiShop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,6 +233,7 @@
     </Compile>
     <Compile Include="Identity.cs" />
     <Compile Include="Models\ProductModal.cs" />
+    <Compile Include="Models\RegiterModal.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\PurchasemasterModal.cs" />
     <Compile Include="Models\SalesDetailModel.cs" />
@@ -499,6 +503,8 @@
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\ReviewStock\Index.cshtml" />
     <Content Include="Views\Sales\salesDataView.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\register1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

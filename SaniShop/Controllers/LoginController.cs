@@ -11,7 +11,10 @@ namespace SaniShop.Controllers
 {
     public class LoginController : Controller 
     {
-        // GET: Login
+
+
+        
+            // GET: Login
         [HttpGet]
         public ActionResult Login()
         {
@@ -40,6 +43,36 @@ namespace SaniShop.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Login");
+        }
+        [HttpGet]
+        public ActionResult register1()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register1(RegiterModal regiterModal)
+        {
+            if (ModelState.IsValid)
+            {
+
+            Regitration regi = new Regitration();
+
+            regi.username = regiterModal.username;
+            regi.UserPassword = regiterModal.UserPassword;
+            regi.Email = regiterModal.Email;
+            regi.mobile = regiterModal.mobile;
+            regi.registerdate = DateTime.Now.ToString();
+            regi.city = regiterModal.city;
+
+            using (SainiShopEntities1 objDb = new SainiShopEntities1())
+                { 
+                    objDb.Regitrations.Add(regi);
+                    objDb.SaveChanges();
+                }
+                
+            }
+            return View();
         }
     }
 }

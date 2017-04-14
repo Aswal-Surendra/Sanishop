@@ -53,6 +53,18 @@
           <Property Name="additionalComment" Type="varchar" MaxLength="5000" />
           <Property Name="SupplierName" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Regitration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="mobile" Type="char" MaxLength="10" />
+          <Property Name="registerdate" Type="varchar" MaxLength="100" />
+          <Property Name="city" Type="nvarchar" MaxLength="256" />
+        </EntityType>
         <EntityType Name="Sales">
           <Key>
             <PropertyRef Name="id" />
@@ -121,6 +133,7 @@
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regitration" EntityType="Self.Regitration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales_Details" EntityType="Self.Sales_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierMaster" EntityType="Self.SupplierMaster" Schema="dbo" store:Type="Tables" />
@@ -211,6 +224,7 @@
           <EntitySet Name="PurchaseDetails" EntityType="SainiShopModel.PurchaseDetail" />
           <EntitySet Name="Sales_Details" EntityType="SainiShopModel.Sales_Details" />
           <EntitySet Name="Users" EntityType="SainiShopModel.User" />
+          <EntitySet Name="Regitrations" EntityType="SainiShopModel.Regitration" />
         </EntityContainer>
         <EntityType Name="PurchaseDetail">
           <Key>
@@ -252,6 +266,18 @@
           <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Regitration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="registerdate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -369,6 +395,19 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regitrations">
+            <EntityTypeMapping TypeName="SainiShopModel.Regitration">
+              <MappingFragment StoreEntitySet="Regitration">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="registerdate" ColumnName="registerdate" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
