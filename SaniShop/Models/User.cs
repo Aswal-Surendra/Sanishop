@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace SaniShop.Models
 {
-    public class Users
+    public class Users : Controller
     {
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -35,6 +35,20 @@ namespace SaniShop.Models
             return BitConverter.ToString(hash.ComputeHash(combined)).ToLower().Replace("-", "");
         }
 
-       
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception ex = filterContext.Exception;
+            filterContext.ExceptionHandled = true;
+
+            var model = new HandleErrorInfo(filterContext.Exception, "Controller", "Action");
+
+            filterContext.Result = new ViewResult()
+            {
+                ViewName = "Error",
+                ViewData = new ViewDataDictionary(model)
+            };
+
+        }
+
     }
 }

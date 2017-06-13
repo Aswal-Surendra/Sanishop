@@ -9,6 +9,7 @@ using DataTables.Mvc;
 
 namespace SaniShop.Controllers
 {
+    [Authorize]
     [CustomAuthorize("Admin")]
     public class SalesController : Controller
     {
@@ -149,6 +150,21 @@ namespace SaniShop.Controllers
                 Quantity = asset.Quantity
             }).ToList();
             return Json(new DataTablesResponse(requestModel.Draw, data, filteredCount, totalCount), JsonRequestBehavior.AllowGet);
+
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception ex = filterContext.Exception;
+            filterContext.ExceptionHandled = true;
+
+            var model = new HandleErrorInfo(filterContext.Exception, "Controller", "Action");
+
+            filterContext.Result = new ViewResult()
+            {
+                ViewName = "Error",
+                ViewData = new ViewDataDictionary(model)
+            };
 
         }
 
