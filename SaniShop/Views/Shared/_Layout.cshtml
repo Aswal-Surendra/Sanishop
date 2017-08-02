@@ -33,14 +33,21 @@
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>
             <div class="menu">
-                <ul class="solidblockmenu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("Register", "Register1", "Login")</li>*@
-                    <li>@Html.ActionLink("Sales Market", "Index", "Sales")</li>
-                    <li>@Html.ActionLink("Purchase Market", "GetPurchaseHome", "Purchase")</li>
-                    <li>@Html.ActionLink("Reports", "Index", "Report")</li>
-                    <li>@Html.ActionLink("Review Stock", "Index", "ReviewStock")</li>
-                </ul>
+                <div id="menu">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sales", "Index", "Sales") </li>
+                        <li>@Html.ActionLink("Purchase", "GetPurchaseHome", "Purchase")</li>
+                        <li><a href="#">Repots</a>
+                        <ul>
+                            <li>@Html.ActionLink("Sales", "Index", "SalesReport")</li>
+                            <li><a href="#">Purchase</a></li>
+                        </ul>
+
+                        </li>
+                        <li style="width:200px"><a href="#">Review Stock</a></li>
+                    </ul>
+                </div>
                 <div class="clear"></div>
             </div>
         </div>

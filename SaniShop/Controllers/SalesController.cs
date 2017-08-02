@@ -9,7 +9,7 @@ using DataTables.Mvc;
 
 namespace SaniShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [CustomAuthorize("Admin")]
     public class SalesController : Controller
     {

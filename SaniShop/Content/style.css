@@ -48,7 +48,7 @@ body
 
 .hot-search{
   width: 776px;
-  height: 31px;
+  height: 5px;
   background-color: #ffffff;
 }
 
@@ -451,4 +451,38 @@ a.nav2:active {color: blue; }
 
 .frame{
 width:140px; text-align:right; padding-left:3px;
+}
+ul {
+    list-style:none;
+    margin:0px;
+    padding:0px;
+
+}
+
+    ul li {
+        background:#01C5FF; 
+        width:128px;
+        float:left;
+        font-size:25px;
+        border:2px solid white;
+        height:50px;
+        text-align:center;
+        line-height:50px;
+    }
+    ul li a{
+        text-decoration:none;
+        color:white;
+        display:block;
+          }
+#menu {
+       margin-left:33px;
+}
+ul li:hover{
+    background-color:aqua;
+}
+ul ul {
+    display:none;
+}
+ul li:hover ul {
+    display:block;
 }

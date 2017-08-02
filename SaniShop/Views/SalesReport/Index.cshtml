@@ -1,0 +1,102 @@
+﻿<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@model SaniShop.Models.SalesDetailModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sales Report</h2>
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@*<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>*@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sales Report</title>
+</head>
+<body>
+    <div>
+
+        <table class="table" style="width:auto">
+            <tr>
+                <td align="left">SupplierName</td>
+
+                <td>
+                    @Html.DropDownListFor(m => m.Product_id, Model.Productname, "--Select Product--",
+                       new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td align="left">WattMaster</td>
+
+                <td>
+
+                    @Html.DropDownListFor(m => m.Product_id, Model.wattmain, "--Select Watt--",
+                 new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td align="left">Sales from</td>
+
+                <td>
+                    @Html.TextBoxFor(m => m.date, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td align="left">Sales to</td>
+
+                <td>
+                    @Html.EditorFor(m => m.date, new { htmlAttributes = new { @class = "form-control date-picker", onkeydown = "return false", onpaste = "return false" } })
+                </td>
+            </tr>
+        </table>
+        <input type="date" />
+    </div>
+</body>
+</html>
+
+
+
+    
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript">
+
+        debugger;
+        $(document).ready(function () {
+            $(function () {
+                $(".date-picker").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd-M-yy'
+                });
+            });
+
+        //    jQuery.validator.methods.date = function (value, element) {
+        //        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        //        if (isChrome) {
+        //            var d = new Date();
+        //            return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+        //        } else {
+        //            return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+        //        }
+        //    };
+        });
+
+    </script>
+}
+
+

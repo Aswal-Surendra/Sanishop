@@ -182,6 +182,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewStockController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\SalesReportController.cs" />
     <Compile Include="CustomAuthorizeAttribute .cs" />
     <Compile Include="DAL\Complaint.cs">
       <DependentUpon>SainiShop.tt</DependentUpon>
@@ -471,6 +472,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -506,6 +509,8 @@
     <Content Include="Views\Sales\salesDataView.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Login\register1.cshtml" />
+    <Content Include="Views\SalesReport\SalesReport.cshtml" />
+    <Content Include="Views\SalesReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
