@@ -27,7 +27,7 @@ namespace SaniShop.Models
         public int watt { get; set; }
 
         public string AdditionalComments { get; set; }
-        public DateTime date { get; set; }
+        public DateTime EnterDate { get; set; }
 
     }
 }
