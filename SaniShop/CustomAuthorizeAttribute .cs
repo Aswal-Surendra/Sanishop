@@ -22,7 +22,8 @@ namespace SaniShop
         }
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            string k = HttpContext.Current.Session["key"].ToString();
+            
+            string k = HttpContext.Current.Session["key"]?.ToString();
             bool authorize = false;
             foreach (var role in allowedroles)
             {

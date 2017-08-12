@@ -28,10 +28,15 @@
     { 
     <div style="text-align:left">Welcome @HttpContext.Current.Session["key"].ToString()!!!!</div> 
     }
-    <div style="text-align:left">Welcome Please login first for the current user</div>  
-    <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
+    else
+    { 
+    <div style="text-align:left">Welcome Please login first for the current user</div>
+    }
 
-    <center>
+
+    <div style="text-align:right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.ActionLink("Logout", "Logout", "Login")</div>
+    
+        <center>
         <div class="wrapper">
             <div class="logo">Saini Brothers</div>
             <div class="menu">
@@ -60,7 +65,7 @@
                     &nbsp;&nbsp;
                 </div>
                 <div style="float:left; margin-left:5px; margin-top:10px;">
-                    <input type="image" src="~/images/search.jpg" />
+                    <input type1="image" src="~/images/search.jpg" />
                 </div>
             </div>*@
         <div class="hot-search">
