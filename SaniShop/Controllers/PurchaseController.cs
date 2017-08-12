@@ -9,6 +9,7 @@ using SaniShop.DAL;
 
 namespace SaniShop.Controllers
 {
+    [CustomAuthorize("Admin")]
     public class PurchaseController : Controller
     {
         // GET: Purchase
